@@ -50,6 +50,7 @@ fn link_wireshark() {
 fn generate_bindings() {
     let mut builder = bindgen::Builder::default()
         .header("wrapper.h")
+        .opaque_type("wtap_pseudo_header")
         .generate_comments(false);
 
     match pkg_config::probe_library("wireshark") {
